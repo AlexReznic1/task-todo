@@ -1,0 +1,18 @@
+<div class="todo">
+  <h4>Todos</h4>
+
+  <div class="create-item">
+    <input type="text" [value]="input" (keypress)="onEnter($event)" placeholder="What needs to be done?">
+
+    <div *ngFor="let row of list; let i = index" class="list">
+      <input id="check" type="checkbox" class="checkbox">
+      <label for="check">{{row}}</label>
+      <span class="close" (click)="onDelete(i)"></span>
+    </div>
+
+    <div class="footer-list" *ngIf="list?.length > 0">
+      <p *ngIf="list?.length === 1">{{list?.length}} item left</p>
+      <p *ngIf="list?.length > 1">{{list?.length}} items left</p>
+    </div>
+  </div>
+</div>
